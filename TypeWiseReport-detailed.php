@@ -50,7 +50,6 @@ if (strlen($_SESSION['detsuid']==0)) {
                         <span style="color:red;font-weight: bold;font-size: 20px">
                         <?php
                         echo $types;
-			
                         ?>
                         </span>
                     </div>
@@ -106,8 +105,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 					</div>
 				</div><!-- /.panel-->
 			</div><!-- /.col-->
-			<?php include_once('includes/footer.php');
-			echo $row['ExpenseDate'];?>
+			<?php include_once('includes/footer.php');?>
 		</div><!-- /.row -->
 	</div><!--/.main-->
 

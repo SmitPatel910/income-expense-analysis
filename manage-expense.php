@@ -74,6 +74,7 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
                   <th>S.NO</th>
                   <th>Expense Item</th>
                   <th>Expense Cost</th>
+				  <th>Expense Type</th>
                   <th>Expense Date</th>
                   <th>Action</th>
                 </tr>
@@ -91,6 +92,7 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><?php echo $cnt;?></td>
                   <td><?php echo $row['ExpenseItem'];?></td>
                   <td><?php echo $row['ExpenseCost'];?></td>
+				  <td><?php echo $row['Type_Expense'];?></td>
 				  <td><?php 
 							$New_date = date("d-m-Y", strtotime($old_date));
 							echo $New_date;?></td>

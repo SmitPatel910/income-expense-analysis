@@ -10,9 +10,10 @@ if(isset($_POST['submit']))
   {
   	$userid=$_SESSION['detsuid'];
     $dateexpense=$_POST['dateexpense'];
-     $item=$_POST['item'];
-     $costitem=$_POST['costitem'];
-    $query=mysqli_query($con, "insert into tblexpense(UserId,ExpenseDate,ExpenseItem,ExpenseCost) value('$userid','$dateexpense','$item','$costitem')");
+    $item=$_POST['item'];
+	$costitem=$_POST['costitem'];
+	$type = $_POST['optradio'];
+    $query=mysqli_query($con, "insert into tblexpense(UserId,ExpenseDate,ExpenseItem,ExpenseCost,Type_Expense) value('$userid','$dateexpense','$item','$costitem','$type')");
 if($query){
 echo "<script>alert('Expense has been added');</script>";
 echo "<script>window.location.href='manage-expense.php'</script>";
@@ -85,7 +86,25 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 									<label>Cost of Item</label>
 									<input class="form-control" type="text" value="" required="true" name="costitem">
 								</div>
-																
+								
+								<label class="radio-inline">
+								<input  type="radio" name="optradio" checked value="General"/>General
+								</label>
+								<label class="radio-inline">
+								<input  type="radio" name="optradio" value="Food"/>Food
+								</label>
+								<label class="radio-inline">
+								<input  type="radio" name="optradio" value="Home"/>Home
+								</label>
+								<label class="radio-inline">
+								<input type="radio" name="optradio" value="Electricity"/>Electricity
+								</label>
+								<label class="radio-inline">
+								<input  type="radio" name="optradio" value="Other"/>Other
+								</label>
+								
+								  <br><br>
+
 								<div class="form-group has-success">
 									<button type="submit" class="btn btn-primary" name="submit">Add</button>
 								</div>

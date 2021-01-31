@@ -52,7 +52,7 @@ if(isset($_POST['submit']))
 								<input class="form-control" placeholder="Mobile Number" name="contactno" type="contactno" value="" required="true">
 							</div>
 							<div class="checkbox">
-								<button type="submit" value="" name="submit" class="btn btn-primary">Reset</button><span style="padding-left:250px"><a href="index.php" class="btn btn-primary">Login</a></span>
+								<button type="submit" value="" name="submit" class="btn btn-primary">Reset</button><span><a href="index.php" class="btn btn-primary">Login</a></span>
 
 							</div>
 							</fieldset>

@@ -34,7 +34,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Datewise Expense Report</li>
+				<li class="active">Expense Report</li>
 			</ol>
 		</div><!--/.row-->
 		
@@ -47,7 +47,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 				
 				
 				<div class="panel panel-default">
-					<div class="panel-heading">Datewise Expense Report</div>
+					<div class="panel-heading">Expense Report</div>
 					<div class="panel-body">
 						<p style="font-size:16px; color:red" align="center"> <?php if($msg){
     echo $msg;

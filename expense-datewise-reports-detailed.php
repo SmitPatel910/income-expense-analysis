@@ -34,7 +34,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Datewise Expense Report</li>
+				<li class="active">Expense Report</li>
 			</ol>
 		</div><!--/.row-->
 		
@@ -47,7 +47,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 				
 				
 				<div class="panel panel-default">
-					<div class="panel-heading">Datewise Expense Report</div>
+					<div class="panel-heading">Generated Expense Report</div>
 					<div class="panel-body">
 
 						<div class="col-md-12">
@@ -57,7 +57,7 @@ $fdate=$_POST['fromdate'];
  $tdate=$_POST['todate'];
 $rtype=$_POST['requesttype'];
 ?>
-<h5 align="center" style="color:blue">Datewise Expense Report from 
+<h5 align="center" style="color:blue">Expense Report from 
 <span style="color:red"><?php 
 	$New_fdate = date("d-m-Y", strtotime($fdate));
 	echo $New_fdate;

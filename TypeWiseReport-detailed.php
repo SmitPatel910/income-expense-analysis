@@ -50,6 +50,7 @@ if (strlen($_SESSION['detsuid']==0)) {
                         <span style="color:red;font-weight: bold;font-size: 20px">
                         <?php
                         echo $types;
+			echo $row['ExpenseDate'];
                         ?>
                         </span>
                     </div>

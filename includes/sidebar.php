@@ -10,6 +10,7 @@ include('includes/dbconnection.php');
             <div class="profile-userpic">
                 <img src="http://placehold.it/50/30a5ff/fff" class="img-responsive" alt="">
             </div>
+
             <div class="profile-usertitle">
                 <?php
 $uid=$_SESSION['detsuid'];
@@ -23,13 +24,15 @@ $name=$row['FullName'];
             </div>
             <div class="clear"></div>
         </div>
-        <div class="divider"></div>
         
+
+
+
+
+        <div class="divider"></div>
         <ul class="nav menu">
             <li class="active"><a href="dashboard.php"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
             
-            
-           
             <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
                 <em class="fa fa-navicon">&nbsp;</em>Expenses <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
@@ -45,30 +48,21 @@ $name=$row['FullName'];
 
             </li>
            
-  <li class="parent "><a data-toggle="collapse" href="#sub-item-2">
-                <em class="fa fa-navicon">&nbsp;</em>Expense Report <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+            <li class="parent "><a data-toggle="collapse" href="#sub-item-2">
+                <em class="fa fa-navicon">&nbsp;</em> Expense Report <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
                 <ul class="children collapse" id="sub-item-2">
                     <li><a class="" href="expense-datewise-reports.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Daywise Expenses
+                        <span class="fa fa-arrow-right">&nbsp;</span>Generate Report 
                     </a></li>
-                    <li><a class="" href="expense-monthwise-reports.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Monthwise Expenses
-                    </a></li>
-                    <li><a class="" href="expense-yearwise-reports.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Yearwise Expenses
-                    </a></li>
-                    
                 </ul>
             </li>
 
-
-
-
-            
             <li><a href="user-profile.php"><em class="fa fa-user">&nbsp;</em> Profile</a></li>
-             <li><a href="change-password.php"><em class="fa fa-clone">&nbsp;</em> Change Password</a></li>
-<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+             
+            <li><a href="change-password.php"><em class="fa fa-clone">&nbsp;</em> Change Password</a></li>
+
+            <li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 
         </ul>
-    </div>
+</div>

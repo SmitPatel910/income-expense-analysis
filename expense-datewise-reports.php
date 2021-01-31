@@ -37,9 +37,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 				<li class="active">Expense Report</li>
 			</ol>
 		</div><!--/.row-->
-		
-		
-				
+
 		
 		<div class="row">
 			<div class="col-lg-12">
@@ -50,13 +48,10 @@ if (strlen($_SESSION['detsuid']==0)) {
 					<div class="panel-heading">Expense Report</div>
 					<div class="panel-body">
 						<p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
+    					echo $msg;
+ 						 }  ?> </p>
 						<div class="col-md-12">
-					
-
-
-							<form role="form" method="post" action="expense-datewise-reports-detailed.php" name="bwdatesreport">
+						<form role="form" method="post" action="expense-datewise-reports-detailed.php" name="bwdatesreport">
 								<div class="form-group">
 									<label>From Date</label>
 									<input class="form-control" type="date"  id="fromdate" name="fromdate" required="true">
@@ -65,8 +60,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 									<label>To Date</label>
 									<input class="form-control" type="date"  id="todate" name="todate" required="true">
 								</div>
-								
-							
+								 
 								
 								<div class="form-group has-success">
 									<button type="submit" class="btn btn-primary" name="submit">Submit</button>
@@ -79,8 +73,11 @@ if (strlen($_SESSION['detsuid']==0)) {
 						</div>
 					</div>
 				</div><!-- /.panel-->
+				
 			</div><!-- /.col-->
+			
 			<?php include_once('includes/footer.php');?>
+			
 		</div><!-- /.row -->
 	</div><!--/.main-->
 	

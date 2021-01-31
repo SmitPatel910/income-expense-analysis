@@ -55,6 +55,9 @@ $name=$row['FullName'];
                     <li><a class="" href="expense-datewise-reports.php">
                         <span class="fa fa-arrow-right">&nbsp;</span>Generate Report 
                     </a></li>
+                    <li><a class="" href="TypewiseReport.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Type Wise Report
+                    </a></li>
                 </ul>
             </li>
 

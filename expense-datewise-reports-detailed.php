@@ -14,7 +14,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Daily Expense Tracker || Datewise Expense Report</title>
+	<title>Daily Expense Analysis || Datewise Expense Report</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/datepicker3.css" rel="stylesheet">
@@ -34,7 +34,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Datewise Expense Report</li>
+				<li class="active">Expense Report</li>
 			</ol>
 		</div><!--/.row-->
 		
@@ -43,21 +43,27 @@ if (strlen($_SESSION['detsuid']==0)) {
 		
 		<div class="row">
 			<div class="col-lg-12">
-			
-				
-				
 				<div class="panel panel-default">
-					<div class="panel-heading">Datewise Expense Report</div>
+					<div class="panel-heading">Generated Expense Report</div>
 					<div class="panel-body">
 
 						<div class="col-md-12">
 					
 <?php
 $fdate=$_POST['fromdate'];
- $tdate=$_POST['todate'];
+$tdate=$_POST['todate'];
 $rtype=$_POST['requesttype'];
 ?>
-<h5 align="center" style="color:blue">Datewise Expense Report from <?php echo $fdate?> to <?php echo $tdate?></h5>
+<h5 align="center" style="color:blue">Expense Report from 
+<span style="color:red"><?php 
+	$New_fdate = date("d-m-Y", strtotime($fdate));
+	echo $New_fdate;
+?></span>  to 
+<span style="color:red"><?php 
+	$New_tdate = date("d-m-Y", strtotime($tdate));
+	echo $New_tdate;
+?></span> 
+</h5>
 <hr />
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <thead>
@@ -65,8 +71,11 @@ $rtype=$_POST['requesttype'];
                                             <tr>
               <th>S.NO</th>
               <th>Date</th>
+<!-- 			  <th>Item Name</th> -->
+<!-- 			  <th>Item Type</th> -->
               <th>Expense Amount</th>
                 </tr>
+
                                         </tr>
                                         </thead>
  <?php
@@ -81,6 +90,8 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><?php echo $cnt;?></td>
             
                   <td><?php  echo $row['ExpenseDate'];?></td>
+<!-- 				  <td><?php  echo $row['ExpenseItem'];?></td>
+				  <td><?php  echo $row['Type_Expense'];?></td> -->
                   <td><?php  echo $ttlsl=$row['totaldaily'];?></td>
            
            
@@ -91,7 +102,7 @@ $cnt=$cnt+1;
 }?>
 
  <tr>
-  <th colspan="2" style="text-align:center">Grand Total</th>     
+  <th colspan="4" style="text-align:center">Grand Total</th>     
   <td><?php echo $totalsexp;?></td>
  </tr>     
 

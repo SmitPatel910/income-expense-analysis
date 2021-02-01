@@ -72,7 +72,7 @@ $rtype=$_POST['requesttype'];
               <th>S.NO</th>
               <th>Date</th>
 			  <th>Item Name</th>
-<!-- 			  <th>Item Type</th> -->
+			  <th>Item Type</th>
               <th>Expense Amount</th>
                 </tr>
 

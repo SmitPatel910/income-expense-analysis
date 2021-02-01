@@ -65,18 +65,18 @@ $rtype=$_POST['requesttype'];
 ?></span> 
 </h5>
 <hr />
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                        <thead>
-                                        <tr>
-                                            <tr>
-						  <th>S.NO</th>
-						  <th>Date</th>
-						  <th>Item Name</th>
-						  <th>Item Type</th>
-						  <th>Expense Amount</th>
-					    </tr>
-					</tr>
-                                        </thead>
+		<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+			<thead>
+			<tr>
+				<tr>
+					<th>S.NO</th>
+					<th>Date</th>
+					<th>Item Name</th>
+					<th>Item Type</th>
+					<th>Expense Amount</th>
+				</tr>
+			</tr>
+			</thead>
  <?php
 $userid=$_SESSION['detsuid'];
 $ret=mysqli_query($con,"SELECT * FROM `tblexpense`  where (ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid')");
@@ -85,38 +85,57 @@ while ($row=mysqli_fetch_array($ret)) {
 
 ?>
               
-                <tr>
-			  <td><?php echo $cnt;?></td>
-			  <td><?php  echo $row['ExpenseDate'];?></td>
-			  <td><?php  echo $row['ExpenseItem'];?></td> 
-			  <td><?php  echo $row['Type_Expense'];?></td> 
-			  <td><?php  echo $row['ExpenseCost'];?></td> 
-			  <?php $ttls2= $row['ExpenseCost'];?>
-           
-           
-                </tr>
-                <?php
-                $totalsexp+=$ttls2; 
-$cnt=$cnt+1;
-}?>
+	<tr>
+		<td><?php echo $cnt;?></td>
+		<td><?php  echo $row['ExpenseDate'];?></td>
+		<td><?php  echo $row['ExpenseItem'];?></td> 
+		<td><?php  echo $row['Type_Expense'];?></td> 
+		<td><?php  echo $row['ExpenseCost'];?></td> 
+		<?php $ttls2= $row['ExpenseCost'];?>
+	</tr>
+                
+	<?php
+	$totalsexp+=$ttls2; 
+	$cnt=$cnt+1;
+	}?>
 
- <tr>
-  <th colspan="4" style="text-align:center">Grand Total</th>     
-  <td><?php echo $totalsexp;?></td>
- </tr>     
+	<tr>
+	<th colspan="4" style="text-align:center">Grand Total</th>     
+	<td><?php echo $totalsexp;?></td>
+	</tr>     
 
-                                    </table>
+	</table>
+	<div>
+	<script type="text/javascript">
+		function Export() {
+			html2canvas(document.getElementById('datatable'), {
+				onrendered: function (canvas) {
+					var data = canvas.toDataURL();
+					var docDefinition = {
+						content: [{
+							image: data,
+							width: 500
+						}]
+					};
+					pdfMake.createPdf(docDefinition).download("report.pdf");
+				}
+			});
+		}
+	</script>
+	<div style="color:red; display: flex;justify-content: center;">
+	<input  type="button" id="btnExport" value="Download" onclick="Export()" />
+	</div>
+	</div>
 
 
 
-
-						</div>
-					</div>
-				</div><!-- /.panel-->
-			</div><!-- /.col-->
-			<?php include_once('includes/footer.php');?>
-		</div><!-- /.row -->
-	</div><!--/.main-->
+		</div>
+	</div>
+</div><!-- /.panel-->
+</div><!-- /.col-->
+<?php include_once('includes/footer.php');?>
+</div><!-- /.row -->
+</div><!--/.main-->
 	
 <script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -126,7 +145,9 @@ $cnt=$cnt+1;
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
-	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
 </body>
 </html>
 <?php } ?>

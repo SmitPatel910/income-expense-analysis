@@ -81,18 +81,16 @@ if (strlen($_SESSION['detsuid']==0)) {
                             </thead>     
                                 <?php
                                 $userid=$_SESSION['detsuid'];
-                                $ret=mysqli_query($con,"SELECT ExpenseDate,ExpenseItem,Type_Expense,ExpenseCost  FROM `tblexpense`  where ((ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid') && (Type_Expense = '$types'))");
+                                $ret=mysqli_query($con,"SELECT ExpenseDate,ExpenseItem,Type_Expense,SUM(ExpenseCost) as totaldaily FROM `tblexpense`  where ((ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid') && (Type_Expense = '$types')) group by ExpenseDate");
                                 $cnt=1;
-				
                                 while ($row=mysqli_fetch_array($ret)) {
-					echo $fdate;
                                     ?>         
                                     <tr>
                                     <td><?php echo $cnt;?></td>
                                     <td><?php  echo $row['ExpenseDate'];?></td>
                                     <td><?php  echo $row['ExpenseItem'];?></td>
                                     <td><?php  echo $row['Type_Expense'];?></td>
-                                    <td><?php  echo $ttlsl=$row['ExpenseCost'];?></td>
+                                    <td><?php  echo $ttlsl=$row['totaldaily'];?></td>
                                     </tr>
                                 <?php
                                     $totalsexp+=$ttlsl; 
@@ -103,6 +101,27 @@ if (strlen($_SESSION['detsuid']==0)) {
                                     <td><?php echo $totalsexp;?></td>
                                     </tr>
                             </table>
+                            <div>
+                            <script type="text/javascript">
+                                function Export() {
+                                    html2canvas(document.getElementById('datatable'), {
+                                        onrendered: function (canvas) {
+                                            var data = canvas.toDataURL();
+                                            var docDefinition = {
+                                                content: [{
+                                                    image: data,
+                                                    width: 500
+                                                }]
+                                            };
+                                            pdfMake.createPdf(docDefinition).download("report.pdf");
+                                        }
+                                    });
+                                }
+                            </script>
+                            <div style="color:red; display: flex;justify-content: center;">
+                            <input  type="button" id="btnExport" value="Download" onclick="Export()" />
+                            </div>
+                            </div>
                         </div>
 					</div>
 				</div><!-- /.panel-->
@@ -119,6 +138,9 @@ if (strlen($_SESSION['detsuid']==0)) {
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
 	
 </body>
 </html>

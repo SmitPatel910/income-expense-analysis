@@ -79,7 +79,7 @@ $rtype=$_POST['requesttype'];
                                         </thead>
  <?php
 $userid=$_SESSION['detsuid'];
-$ret=mysqli_query($con,"SELECT ExpenseDate,ExpenseItem,SUM(ExpenseCost) as totaldaily FROM `tblexpense`  where (ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid') group by ExpenseDate");
+$ret=mysqli_query($con,"SELECT ExpenseDate,ExpenseItem,ExpenseCost as totaldaily FROM `tblexpense`  where (ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid') group by ExpenseDate");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

@@ -88,7 +88,7 @@ while ($row=mysqli_fetch_array($ret)) {
                 <tr>
 			  <td><?php echo $cnt;?></td>
 			  <td><?php  echo $row['ExpenseDate'];?></td>
-			  <td><?php  echo $row['ExpenseItem'];?></td> 
+<!-- 			  <td><?php  echo $row['ExpenseItem'];?></td>  -->
 <!-- 			  <td><?php  echo $row['Type_Expense'];?></td>  -->
 			  <td><?php  echo $ttlsl=$row['totaldaily'];?></td>
            

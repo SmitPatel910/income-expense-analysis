@@ -90,18 +90,19 @@ while ($row=mysqli_fetch_array($ret)) {
 			  <td><?php  echo $row['ExpenseDate'];?></td>
 			  <td><?php  echo $row['ExpenseItem'];?></td> 
 			  <td><?php  echo $row['Type_Expense'];?></td> 
-			  <td><?php  echo $row['ExpenseCost'];?></td>  -->
+			  $ttls2 = $row['ExpenseCost'];
+			  <td><?php  echo $ttls2;?></td>  
            
            
                 </tr>
                 <?php
-//                 $totalsexp+=$ttlsl; 
+                $totalsexp+=$ttls2; 
 $cnt=$cnt+1;
 }?>
 
  <tr>
   <th colspan="4" style="text-align:center">Grand Total</th>     
-<!--   <td><?php echo $totalsexp;?></td> -->
+  <td><?php echo $totalsexp;?></td>
  </tr>     
 
                                     </table>

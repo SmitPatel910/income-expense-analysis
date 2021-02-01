@@ -47,7 +47,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 						<p style="font-size:16px; color:red" align="center"> <?php if($msg){
     					echo $msg;
  						 }  ?> </p>
-						<div class="col-md-12">
+						<div>
 						<form role="form" method="post" action="TypeWiseReport-detailed.php" name="bwdatesreport">
 								<div class="form-group">
 									<label>From Date</label>

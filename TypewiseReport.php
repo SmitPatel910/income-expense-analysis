@@ -58,7 +58,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 									<label>To Date</label>
 									<input class="form-control" type="date"  id="todate" name="todate" required="true">
 								</div>
-								<div class="col-2">
+								<div class="col-md-12">
 								<label class="radio-inline">
 								<input  type="radio" name="optradio" value="General" required="required"/>General
 								</label>

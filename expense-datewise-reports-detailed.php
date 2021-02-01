@@ -90,8 +90,8 @@ while ($row=mysqli_fetch_array($ret)) {
 			  <td><?php  echo $row['ExpenseDate'];?></td>
 			  <td><?php  echo $row['ExpenseItem'];?></td> 
 			  <td><?php  echo $row['Type_Expense'];?></td> 
-			  <? php $ttls2 = $row['ExpenseCost']; ?>
-			  <td><?php  echo $ttls2;?></td>  
+			  <td><?php  echo $row['ExpenseCost'];?></td> 
+			  <?php $ttls2= $row['ExpenseCost'];?>
            
            
                 </tr>

@@ -58,19 +58,19 @@ if (strlen($_SESSION['detsuid']==0)) {
 									<input class="form-control" type="date"  id="todate" name="todate" required="true">
 								</div>
                                 				<div class="col-lg-2">
-                                				<label class="radio-inline col-lg-2">
+                                				<label class="radio-inline col col-lg-2">
 								<input  type="radio" name="optradio" value="General" required="required"/>General
 								</label>
-								<label class="radio-inline col-lg-2">
+								<label class="radio-inline col col-lg-2">
 								<input  type="radio" name="optradio" value="Food" required="required"/>Food
 								</label>
-								<label class="radio-inline col-lg-2">
+								<label class="radio-inline col col-lg-2">
 								<input  type="radio" name="optradio" value="Home" required="required"/>Home
 								</label>
-								<label class="radio-inline col-lg-2">
+								<label class="radio-inline col col-lg-2">
 								<input type="radio" name="optradio" value="Electricity" required="required"/>Electricity
 								</label>
-								<label class="radio-inline col-lg-2">
+								<label class="radio-inline col col-lg-2">
 								<input  type="radio" name="optradio" value="Other" required="required"/>Other
 								</label>
                                					 </div>

@@ -45,7 +45,7 @@ if (strlen($_SESSION['detsuid']==0)) {
     					echo $msg;
  						 }  ?> </p>
 						<div class="col-md-12">
-						<form role="form" method="post" action="graph-detailed.php" name="bwdatesreport">
+						<form role="form" method="post" action="graph-detailed2.php" name="bwdatesreport">
 								<div class="form-group">
 									<label>From Date</label>
 									<input class="form-control" type="date"  id="fromdate" name="fromdate" required="true">

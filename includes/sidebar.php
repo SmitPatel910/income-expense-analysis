@@ -58,6 +58,9 @@ $name=$row['FullName'];
                     <li><a class="" href="TypewiseReport.php">
                         <span class="fa fa-arrow-right">&nbsp;</span> Type Wise Report
                     </a></li>
+                    <li><a class="" href="graph.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Generate Graph
+                    </a></li>
                 </ul>
             </li>
 

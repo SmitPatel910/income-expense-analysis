@@ -72,7 +72,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 								</label>
 								<label class="radio-inline">
 								<input  type="radio" name="optradio" value="Other"/>Clothes
-								</label>>
+								</label>
                                 				</div>
 								
 								  <br><br>

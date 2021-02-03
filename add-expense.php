@@ -94,13 +94,16 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
 								<input  type="radio" name="optradio" value="Food"/>Food
 								</label>
 								<label class="radio-inline">
-								<input  type="radio" name="optradio" value="Home"/>Home
+								<input  type="radio" name="optradio" value="Home"/>Electronics
 								</label>
 								<label class="radio-inline">
-								<input type="radio" name="optradio" value="Electricity"/>Electricity
+								<input type="radio" name="optradio" value="Electricity"/>Bill
 								</label>
 								<label class="radio-inline">
-								<input  type="radio" name="optradio" value="Other"/>Other
+								<input  type="radio" name="optradio" value="Other"/>Sport
+								</label>
+								<label class="radio-inline">
+								<input  type="radio" name="optradio" value="Other"/>Clothes
 								</label>
 								
 								  <br><br>

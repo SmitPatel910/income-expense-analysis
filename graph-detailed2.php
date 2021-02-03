@@ -94,7 +94,7 @@ else{
                                         type: "doughnut",
                                         startAngle: 60,
                                         indexLabelFontSize: 17,
-                                        indexLabel: "{label} - #percent%",
+                                        indexLabel: "{label}",
                                         toolTipContent: "<b>{label}:</b>(#percent%)", 
                                         dataPoints: points    
                                     }]

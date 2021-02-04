@@ -111,20 +111,7 @@ else{
         </div>   
     </div>        
 </div>
-                <style>
-                    @media screen and (max-width < 600px) {
-                        #chart{
-                            color:white;
-                            width:60%;
-                        }
-                    }
-                    @media screen and (max-width < 800px) {
-                        #chart{
-                            color:white;
-                            width:70%;
-                        }
-                    }
-                </style>    
+                 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>

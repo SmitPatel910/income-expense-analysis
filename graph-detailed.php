@@ -94,7 +94,7 @@ else{
 
                                 .highcharts-figure, .highcharts-data-table table {
                                 min-width: 310px; 
-                                max-width: 800px;
+                                max-width: 790px;
                                 margin: 1em auto;
                                 }
 

@@ -66,7 +66,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 	                    echo $New_tdate;
                         ?></span> 
                         </h5><hr />
-
+			<div class="table-responsive">
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
@@ -105,6 +105,7 @@ if (strlen($_SESSION['detsuid']==0)) {
                                     <td><?php echo $totalsexp;?></td>
                                     </tr>
                             </table>
+			  </div>
                             <div>
                             <script type="text/javascript">
                                 function Export() {

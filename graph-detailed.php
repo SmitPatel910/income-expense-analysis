@@ -90,8 +90,7 @@ else{
                         <style>
                             #container {
                                 height: 400px; 
-				
-				    margin-right:10%;
+				                margin-right:10%;
                                 }
 
                                 .highcharts-figure, .highcharts-data-table table {
@@ -182,7 +181,16 @@ else{
         </div>   
     </div>        
 </div>
-                    
+<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/custom.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>                   
 </body>
 </html>
 <?php } ?>

@@ -149,6 +149,9 @@ else{
                                         beta: 0
                                         }
                                     },
+				    title: {  
+                                        text: 'Expense Graph'
+                                    },
                                     accessibility: {
                                         point: {
                                         valueSuffix: '%'

@@ -65,6 +65,7 @@ $rtype=$_POST['requesttype'];
 ?></span> 
 </h5>
 <hr />
+		<div class="table-responsive">
 		<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 			<thead>
 			<tr>
@@ -109,6 +110,7 @@ while ($row=mysqli_fetch_array($ret)) {
 	</tr>     
 
 	</table>
+	</div>
 	<div>
 	<script type="text/javascript">
 		function Export() {

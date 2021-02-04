@@ -46,7 +46,7 @@ include('includes/dbconnection.php');
                     <li><a class="" href="income-report.php">
                         <span class="fa fa-arrow-right">&nbsp;</span> Income Report
                     </a></li>
-                    <li><a class="" href="income-report-typewise.php">
+                    <li><a class="" href="Income-report-typewise.php">
                         <span class="fa fa-arrow-right">&nbsp;</span> Typewise Income
                     </a></li>
                     

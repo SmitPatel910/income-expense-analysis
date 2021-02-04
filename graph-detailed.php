@@ -74,57 +74,113 @@ else{
                         $var3 = $row1['ttl1'];
                         }
                         ?>
+                        
+
+                        <script src="https://code.highcharts.com/highcharts.js"></script>
+                        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+                        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+                        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+                        <figure class="highcharts-figure">
+                        <div id="container"></div>
+                        
+                        </figure>
+
+                        <style>
+                            #container {
+                                height: 400px; 
+                                }
+
+                                .highcharts-figure, .highcharts-data-table table {
+                                min-width: 310px; 
+                                max-width: 800px;
+                                margin: 1em auto;
+                                }
+
+                                .highcharts-data-table table {
+                                font-family: Verdana, sans-serif;
+                                border-collapse: collapse;
+                                border: 1px solid #EBEBEB;
+                                margin: 10px auto;
+                                text-align: center;
+                                width: 100%;
+                                max-width: 500px;
+                                }
+                                .highcharts-data-table caption {
+                                padding: 1em 0;
+                                font-size: 1.2em;
+                                color: #555;
+                                }
+                                .highcharts-data-table th {
+                                font-weight: 600;
+                                padding: 0.5em;
+                                }
+                                .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+                                padding: 0.5em;
+                                }
+                                .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+                                background: #f8f8f8;
+                                }
+                                .highcharts-data-table tr:hover {
+                                background: #f1f7ff;
+                                }
+                        </style>
+
                         <script>
-                            window.onload = function () {
                                 var totalpriceArr = <?php echo json_encode($var1); ?>;
                                 var labelArr = <?php echo json_encode($var2); ?>;
                                 var total = <?php echo json_encode($var3); ?>;
                                 // alert(labelArr);
                                 var points=[];
-                                for(i=0;i<totalpriceArr.length;i++){
+                                    for(i=0;i<totalpriceArr.length;i++){
                                     var dict={};
                                     dict.y=totalpriceArr[i]/total;
                                     dict.label=""+labelArr[i];
                                     points.push(dict);
-                                }
-                                var chart = new CanvasJS.Chart("chart", {
-                                    animationEnabled: true,
-                                    
-                                    data: [{
-                                        type: "pie",
-		                                startAngle: 240,
-                                        indexLabel: "{label} -(#percent%)",
-                                        yValueFormatString:"#%",
-                                        dataPoints: points    
+                                    }
+                                Highcharts.chart('container', {
+                                    chart: {
+                                        type: 'pie',
+                                        options3d: {
+                                        enabled: true,
+                                        alpha: 45,
+                                        beta: 0
+                                        }
+                                    },
+                                    accessibility: {
+                                        point: {
+                                        valueSuffix: '%'
+                                        }
+                                    },
+                                    tooltip: {
+                                        pointFormat: '{point.label}: <b>{point.percentage:.1f}%</b>'
+                                    },
+                                    plotOptions: {
+                                        pie: {
+                                        allowPointSelect: true,
+                                        cursor: 'pointer',
+                                        depth: 35,
+                                        dataLabels: {
+                                            enabled: true,
+                                            format: '{point.label}'
+                                        }
+                                        }
+                                    },
+                                    series: [{
+                                        type: 'pie',
+                                        name: 'Expense',
+                                        data: points
                                     }]
-                                });
-                                chart.render();
-                            }
+                                    });
                         </script>
-                        
-                        <p id="chart" style="height: 300px; width: 100%;"></p>
-                        <div id="chart" style="height: 300px; width: 100%;"></div>
-                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                     </div>    
                 </div>
             </div>
         </div>   
     </div>        
 </div>
-<style>
-                    @media screen and (max-width < 600px) {
-                        #chart{
-                            color:white;
-                            width:60%;
-                        }
-                    }
-                    @media screen and (max-width < 800px) {
-                        #chart{
-                            color:white;
-                            width:70%;
-                        }
-                    }
-                </style>
+                    
 </body>
 </html>
 <?php } ?>

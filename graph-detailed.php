@@ -90,6 +90,7 @@ else{
                         <style>
                             #container {
                                 height: 400px; 
+				    max-width: 790px;
                                 }
 
                                 .highcharts-figure, .highcharts-data-table table {

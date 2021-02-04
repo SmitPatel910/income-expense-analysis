@@ -165,7 +165,7 @@ else{
                                         depth: 35,
                                         dataLabels: {
                                             enabled: true,
-                                            format: '{point.label}'
+                                            format: '{point.label}:{point.percentage:.1f}%'
                                         }
                                         }
                                     },

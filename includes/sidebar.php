@@ -80,7 +80,7 @@ include('includes/dbconnection.php');
                 <em class="fa fa-navicon">&nbsp;</em>Generate Report<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
                 <ul class="children collapse" id="sub-item-3">
-                    <li><a class="" href="graph.php">
+                    <li><a class="" href="#">
                         <span class="fa fa-arrow-right">&nbsp;</span>Net Saving
                     </a></li>
                 </ul>

@@ -117,7 +117,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 									</table>
 								</div>
 			<!-- -------------- Download Started---------------------->
-<!-- 								<div>	
+								<div>	
 									<script type="text/javascript">
 										function Export() {
 											html2canvas(document.getElementById('datatable'), {
@@ -138,7 +138,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 								
 								<div style="color:red; display: flex;justify-content: center;">
 									<input  type="button" id="btnExport" value="Download" onclick="Export()" />
-								</div> -->
+								</div>
 			<!-- -------------- Download Ended---------------------->
 							</div>
 			<!---------------- Graph Part Started ---------------->
@@ -224,7 +224,13 @@ if (strlen($_SESSION['detsuid']==0)) {
 			<?php include_once('includes/footer.php');?>
 		</div>
 	</div>
-	
+	<style>
+		@media (max-width: 767px) {
+			#btnExport{
+				display:none;
+			}
+		}
+	</style>
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>

@@ -68,7 +68,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 								
 								<hr />
 								
-<!-- 								<div class="table-responsive"> -->
+								<div class="table-responsive">
 									<table id="datatable" class="table-responsive table table-bordered mg-b-0" style="overflow-x:auto;border-collapse: collapse; border-spacing: 0; width: 100%;">
 										<thead>
 										<tr>
@@ -115,9 +115,9 @@ if (strlen($_SESSION['detsuid']==0)) {
 										</tr>     
 
 									</table>
-<!-- 								</div> -->
+								</div>
 			<!-- -------------- Download Started---------------------->
-								<div>	
+<!-- 								<div>	
 									<script type="text/javascript">
 										function Export() {
 											html2canvas(document.getElementById('datatable'), {
@@ -138,7 +138,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 								
 								<div style="color:red; display: flex;justify-content: center;">
 									<input  type="button" id="btnExport" value="Download" onclick="Export()" />
-								</div>
+								</div> -->
 			<!-- -------------- Download Ended---------------------->
 							</div>
 			<!---------------- Graph Part Started ---------------->

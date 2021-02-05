@@ -134,8 +134,15 @@ if (strlen($_SESSION['detsuid']==0)) {
 			<?php include_once('includes/footer.php');?>
 		</div><!-- /.row -->
 	</div><!--/.main-->
+    	<style>
+	@media (max-width: 767px) {    
+		#btnExport{
+	  	    display:none;
+		}
+	}
 
-    <script src="js/jquery-1.11.1.min.js"></script>
+	</style>
+    	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>

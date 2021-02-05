@@ -126,7 +126,7 @@ if (strlen($_SESSION['detsuid']==0)) {
 													var docDefinition = {
 														content: [{
 															image: data,
-															width: 500
+															width: 300
 														}]
 													};
 													pdfMake.createPdf(docDefinition).download("report.pdf");

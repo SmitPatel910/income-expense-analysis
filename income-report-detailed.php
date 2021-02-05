@@ -142,8 +142,14 @@ while ($row=mysqli_fetch_array($ret)) {
 <?php include_once('includes/footer.php');?>
 </div><!-- /.row -->
 </div><!--/.main-->
-	
-<script src="js/jquery-1.11.1.min.js"></script>
+	<style>
+	@media (max-width: 767px) {    
+		#btnExport{
+	  	    display:none;
+		}
+	}
+	</style>
+	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
 	<script src="js/chart-data.js"></script>

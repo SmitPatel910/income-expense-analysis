@@ -30,6 +30,8 @@ include('includes/dbconnection.php');
 
         <div class="divider"></div>
         <ul class="nav menu">
+            
+            
             <li class="active"><a href="dashboard.php"><em class="fa fa-dashboard">&nbsp;</em>Dashboard</a></li>
             
             <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
@@ -43,12 +45,8 @@ include('includes/dbconnection.php');
                     <li><a class="" href="manage-income.php">
                         <span class="fa fa-arrow-right">&nbsp;</span> Manage Income
                     </a></li>
-                    <li><a class="" href="income-report.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Income Report
-                    </a></li>
-                    <li><a class="" href="Income-report-typewise.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Typewise Income
-                    </a></li>
+                    
+                    
                     
                 </ul>
 
@@ -66,26 +64,33 @@ include('includes/dbconnection.php');
                     <li><a class="" href="manage-expense.php">
                         <span class="fa fa-arrow-right">&nbsp;</span> Manage Expenses
                     </a></li>
-                    <li><a class="" href="expense-report.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Expense Report 
-                    </a></li>
-                    <li><a class="" href="Expense-report-typewise.php">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Typewise Expense
-                    </a></li>
+                    
                 </ul>
 
             </li>
            
             <li class="parent "><a data-toggle="collapse" href="#sub-item-3">
-                <em class="fa fa-navicon">&nbsp;</em>Generate Report<span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                <em class="fa fa-navicon">&nbsp;</em>Generate Report <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right"><em class="fa fa-plus"></em></span>
                 </a>
                 <ul class="children collapse" id="sub-item-3">
-                    <li><a class="" href="#">
-                        <span class="fa fa-arrow-right">&nbsp;</span>Net Saving
+                    
+                    <li><a class="" href="income-report.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Income Report 
+                    </a></li>
+                    <li><a class="" href="expense-report.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Expense Report 
+                    </a></li>
+                    <li><a class="" href="Income-report-typewise.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Typewise Income
+                    </a></li>
+                    <li><a class="" href="Expense-report-typewise.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Typewise Expense
+                    </a></li>
+                    <li><a class="" href="income-expense-report.php">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Income vs Expense
                     </a></li>
                 </ul>
             </li>
-
 
             <!-- <li><a href="user-profile.php"><em class="fa fa-user">&nbsp;</em> Profile</a></li> -->
              

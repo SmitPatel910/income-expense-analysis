@@ -108,11 +108,8 @@ if (strlen($_SESSION['detsuid']==0)) {
 			}?>
 			
             <tr>
-            <th colspan="4"> <div id="container"></div></th>
+            <th colspan="4"> <div id="curve_chart"></div></th>
             </tr>
-			<tr>
-            <th colspan="4"> <div id="container2"></div></th>
-            </tr> 
 		
 	</table>
 	
@@ -139,174 +136,54 @@ if (strlen($_SESSION['detsuid']==0)) {
 								<input  type="button" id="btnExport" value="Download" onclick="Export()" />
 								</div>
 								</div>
-		<!---------------- Graph Part Started ---------------->
-							<?php  
-								$var1 = array();
-								$var2 = array();
-								$userid=$_SESSION['detsuid'];
-								$ret=mysqli_query($con,"SELECT month(IncomeDate)as inmonth,year(IncomeDate) as inyear,SUM(IncomeAmount) as ttl FROM `tbleincome`  where ((IncomeDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid')) group by(month(IncomeDate))");
-								$ret1=mysqli_query($con,"SELECT SUM(IncomeAmount) as ttl1 FROM `tbleincome`  where ((IncomeDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid'))"); 
-								while ($row=mysqli_fetch_array($ret)) {
-								$var1[] = $row['ttl'];
-								$var2[] = $row['inmonth']."-".$row['inyear']; 
-								}
-								while ($row1=mysqli_fetch_array($ret1)){    
-								$var3 = $row1['ttl1'];
-								}
+							<!---------------- Graph Part Started ---------------->
+								<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+								<script type="text/javascript">
+									google.charts.load('current', {'packages':['corechart']});
+									google.charts.setOnLoadCallback(drawChart);
+
+							function drawChart() {
+								var data = google.visualization.arrayToDataTable([
+								['Month-Year', 'Income', 'Expenses'],
+								<?php
+									$userid=$_SESSION['detsuid'];
+									$cnt=1;
+									$ret3=mysqli_query($con,"SELECT q1.rpmonth, q1.rpyear, q1.totalmonth, q2.totalexp 
+															FROM (SELECT month(IncomeDate) as rpmonth,year(IncomeDate) as rpyear,SUM(IncomeAmount) as totalmonth 
+															FROM tbleincome where (IncomeDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid')
+															group by month(IncomeDate),year(IncomeDate)) as q1 
+															LEFT JOIN
+															(SELECT month(ExpenseDate) as expmonth,year(ExpenseDate) as expyear,SUM(ExpenseCost) as totalexp 
+															FROM tblexpense where (ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid') 
+															group by month(ExpenseDate),year(ExpenseDate)) as q2
+															ON q1.rpmonth = q2.expmonth");
+									
+									
+									while ($row3=mysqli_fetch_array($ret3)){
+										$monyear = $row3['rpmonth']."-".$row3['rpyear'];
+										$income = $row3['totalmonth'];
+										$expense = $row3['totalexp'];
+									?>
+									['<?php echo $monyear;?>',<?php echo $income;?>,<?php echo $expense;?>],
 								
-							?>
-							
-							
-
-							<figure class="highcharts-figure">
-							<script src="https://code.highcharts.com/highcharts.js"></script>
-							<script src="https://code.highcharts.com/modules/exporting.js"></script>
-							<script src="https://code.highcharts.com/modules/export-data.js"></script>
-							<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-							</figure>
-							
-							<script>
-								var totalpriceArr = <?php echo json_encode($var1); ?>;
-								var labelArr = <?php echo json_encode($var2); ?>;
-								var total = <?php echo json_encode($var3); ?>;
-								// alert(labelArr);
-								var points=[];
-									for(i=0;i<totalpriceArr.length;i++){
-									var dict={};
-									dict.y=totalpriceArr[i]/total;
-									dict.label=""+labelArr[i];
-									points.push(dict);
-									}
-									Highcharts.setOptions({
-										colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-											return {
-											radialGradient: {
-												cx: 0.5,
-												cy: 0.3,
-												r: 0.7
-											},
-											stops: [
-												[0, color],
-												[1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-											]
-											};
-										})
-										});
-
-									// Build the chart
-									Highcharts.chart('container', {
-									chart: {
-										plotBackgroundColor: null,
-										plotBorderWidth: null,
-										plotShadow: false,
-										type: 'pie'
-									},
-									title: {
-										text: 'Income'
-									},
-									tooltip: {
-										pointFormat: '{point.label}: <b>{point.percentage:.1f}%</b>'
-									},
-									accessibility: {
-										point: {
-										valueSuffix: '%'
+									<?php
 										}
-									},
-									plotOptions: {
-										pie: {
-										allowPointSelect: true,
-										cursor: 'pointer',
-										dataLabels: {
-											enabled: true,
-											format: '<b>{point.label}</b>: {point.percentage:.1f} %',
-											connectorColor: 'silver'
-										}
-										}
-									},
-									series: [{
-										name: 'Expense',
-										data: points
-									}]
-								});
-							</script>
-							    <!--Graph Part Ended  -->
+									?>
+								]);
 
-								<!---------------- Graph Part Started ---------------->
-							<?php  
-								$var4 = array();
-								$var5 = array();
-								$userid=$_SESSION['detsuid'];
-								$rett=mysqli_query($con,"SELECT month(ExpenseDate)as exmonth,year(ExpenseDate) as exyear,SUM(ExpenseCost) as ttll FROM `tblexpense`  where ((ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid')) group by(month(ExpenseDate))");
-								$rett1=mysqli_query($con,"SELECT SUM(ExpenseCost) as ttll1 FROM `tblexpense`  where ((ExpenseDate BETWEEN '$fdate' and '$tdate') && (UserId='$userid'))"); 
-								while ($row1=mysqli_fetch_array($rett)) {
-								$var4[] = $row1['ttll'];
-								$var5[] = $row1['exmonth']."-".$row1['exyear']; 
-								}
-								while ($row1=mysqli_fetch_array($rett1)){    
-								$var6 = $row1['ttll1'];
-								}
+								var options = {
+								title: 'Income vs Expense',
+								curveType: 'function',
+								legend: { position: 'bottom' }
 								
-							?>
+								};
 
-							<figure class="highcharts-figure">
-							<script src="https://code.highcharts.com/highcharts.js"></script>
-							<script src="https://code.highcharts.com/modules/exporting.js"></script>
-							<script src="https://code.highcharts.com/modules/export-data.js"></script>
-							<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-							</figure>
-							
-							<script>
-								var totalpriceArr = <?php echo json_encode($var4); ?>;
-								var labelArr = <?php echo json_encode($var5); ?>;
-								var total = <?php echo json_encode($var6); ?>;
-								// alert(labelArr);
-								var points=[];
-									for(i=0;i<totalpriceArr.length;i++){
-									var dict={};
-									dict.y=totalpriceArr[i]/total;
-									dict.label=""+labelArr[i];
-									points.push(dict);
-									}
-								Highcharts.chart('container2', {
-									chart: {
-										type: 'pie',
-										options3d: {
-										enabled: true,
-										alpha: 45,
-										beta: 0
-										}
-									},
-									title: {
-										
-										text: 'Expense Graph Monthwise'
-									},
-									accessibility: {
-										point: {
-										valueSuffix: '%'
-										}
-									},
-									tooltip: {
-										pointFormat: '{point.label}: <b>{point.percentage:.1f}%</b>',
-									},
-									plotOptions: {
-										pie: {
-											allowPointSelect: true,
-											cursor: 'pointer',
-											depth: 35,
-											dataLabels: {
-												enabled: true,
-												format: '{point.label}:<b>{point.percentage:.1f}%</b>',
-											}
-										}
-									},
-									series: [{
-										type: 'pie',
-										name: 'Expense',
-										data: points
-									}]
-								});
+								var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+								chart.draw(data, options);
+							}
 							</script>
-							    <!--Graph Part Ended  -->
+								<!--------------- Graph Part Ended --------------------->
 
 		</div>
 	</div>

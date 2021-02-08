@@ -102,7 +102,7 @@ if (strlen($_SESSION['detsuid']==0)) {
                                 }?>
                                     <tr>
                                     <th colspan="4" style="text-align:center">Grand Total</th>     
-                                    <td><?php echo $totalsexp;?></td>
+                                    <td style="color:red;font-weight: bold;"><?php echo $totalsexp;?></td>
                                     </tr>
                             </table>
 			  </div>

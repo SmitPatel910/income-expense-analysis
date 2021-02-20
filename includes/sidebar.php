@@ -8,7 +8,7 @@ include('includes/dbconnection.php');
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <div class="profile-sidebar">
             <div class="profile-userpic">
-                <img src="78159901_1591090164364237_446944682052681728_o.jpg" class="img-responsive" alt="">
+                <img src="https://images.squarespace-cdn.com/content/v1/59f37a4c914e6b8a9c3af162/1600115656596-H0O7S2BFIQBFAEO0MQTL/ke17ZwdGBToddI8pDm48kEuxyT78wI3kD-OQstkUFckUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc5Ta9dtx_N-fW8ZMDZmye3K227jpMBUv6gTp0mgPSe7pyApKPwl3t1ZtDHl0O1mBh/alex%252Bnelson.jpg" class="img-responsive" alt="">
             </div>
 
             <div class="profile-usertitle">

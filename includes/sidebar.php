@@ -8,7 +8,7 @@ include('includes/dbconnection.php');
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <div class="profile-sidebar">
             <div class="profile-userpic">
-                <img src="https://drive.google.com/file/d/123zYlwChJehUM7_jO3rroEmpoogQwk3n/view?usp=sharing" class="img-responsive" alt="">
+                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img-responsive" alt="">
             </div>
 
             <div class="profile-usertitle">
